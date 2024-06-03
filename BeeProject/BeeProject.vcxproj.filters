@@ -42,6 +42,9 @@
     <ClCompile Include="BuilderBee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Beehive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bee.h">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BuilderBee.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Beehive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
