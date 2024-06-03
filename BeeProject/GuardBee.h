@@ -9,8 +9,6 @@ public:
 
 	GuardBee(int life_in_days) : Bee(life_in_days), number_of_attacks(0) {}
 
-	GuardBee(int number_of_attacks) : Bee(), number_of_attacks(number_of_attacks) {}
-
 	GuardBee(int life_in_days, int number_of_attacks)
 		: Bee(life_in_days), number_of_attacks(number_of_attacks) {}
 

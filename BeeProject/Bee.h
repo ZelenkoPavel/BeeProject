@@ -20,7 +20,9 @@ public:
 
 	double getHoneyConsumption();
 
-	virtual double the_amount_of_honey_consumed() = 0;
+	virtual double the_amount_of_honey_consumed() {
+		return honey_consumption;
+	}
 
 	virtual string getInfo() {
 		string msg = "Life in days - ";
