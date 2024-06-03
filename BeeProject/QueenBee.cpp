@@ -39,8 +39,8 @@ double QueenBee::the_amount_of_honey_consumed() {
 		weight = 0.000240;
 	}
 
-	double honey_consumption = Bee::the_amount_of_honey_consumed() 
-		* number_of_eggs_laid_per_day * age / 100000;
+	double honey_consumption = Bee::the_amount_of_honey_consumed() * weight
+		* number_of_eggs_laid_per_day * age * 1.5;
 	return honey_consumption;
 }
 
@@ -49,7 +49,7 @@ string QueenBee::getInfo() {
 	msg += "\nSize - " + size;
 	msg += ";\nNumber of eggs laid per day - "
 		+ to_string(number_of_eggs_laid_per_day);
-	msg += ";\nAge - " + to_string(age) + ";\n";
+	msg += ";\nAge - " + to_string(age);
 
 	return msg;
 }
