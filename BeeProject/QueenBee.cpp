@@ -46,6 +46,8 @@ double QueenBee::the_amount_of_honey_consumed() {
 
 string QueenBee::getInfo() {
 	string msg = "Queen Bee:";
+	msg += ";\nHoney consumption - "
+		+ to_string(the_amount_of_honey_consumed());
 	msg += "\nSize - " + size;
 	msg += ";\nNumber of eggs laid per day - "
 		+ to_string(number_of_eggs_laid_per_day);

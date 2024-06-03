@@ -27,7 +27,9 @@ double Drone::the_amount_of_honey_consumed() {
 }
 
 string Drone::getInfo() {
-	string msg = "Queen Bee:";
+	string msg = "Drone:"
+		+ Bee::getInfo()
+		+ to_string(the_amount_of_honey_consumed());
 	msg += "\nSize - " + size;
 	
 	return msg;

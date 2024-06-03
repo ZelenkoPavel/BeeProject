@@ -20,13 +20,12 @@ public:
 
 	double getHoneyConsumption();
 
-	virtual double the_amount_of_honey_consumed() {
-		return honey_consumption;
-	}
+	virtual double the_amount_of_honey_consumed() = 0;
+
 	virtual string getInfo() {
 		string msg = "Life in days - ";
 		msg += to_string(life_in_days);
-
+		msg += ";\nHoney consumption - ";
 		return msg;
 	}
 };
