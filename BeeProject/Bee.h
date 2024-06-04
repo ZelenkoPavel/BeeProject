@@ -24,6 +24,10 @@ public:
 		return honey_consumption;
 	}
 
+	virtual string getName() {
+		return "Bee";
+	}
+
 	virtual string getInfo() {
 		string msg = "Life in days - ";
 		msg += to_string(life_in_days);

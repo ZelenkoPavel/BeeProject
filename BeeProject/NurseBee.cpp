@@ -13,7 +13,8 @@ void NurseBee::setAmountOfRoyalJellyPerDay(double amount_of_royal_jelly_per_day)
 
 
 double NurseBee::the_amount_of_honey_consumed() {
-	return honey_consumption * amount_of_royal_jelly_per_day * 600;
+	return honey_consumption + honey_consumption
+		* amount_of_royal_jelly_per_day * 600;
 }
 
 string NurseBee::getInfo() {
@@ -24,4 +25,8 @@ string NurseBee::getInfo() {
 		+ to_string(amount_of_royal_jelly_per_day);
 
 	return msg;
+}
+
+string NurseBee::getName() {
+	return "Nurse Bee";
 }

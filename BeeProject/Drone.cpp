@@ -21,8 +21,8 @@ double Drone::the_amount_of_honey_consumed() {
 		weight = 0.000240;
 	}
 
-	double honey_consumption = Bee::the_amount_of_honey_consumed()
-		* weight * 5000;
+	double honey_consumption = Bee::the_amount_of_honey_consumed() +
+		Bee::the_amount_of_honey_consumed()	* weight * 5000;
 	return honey_consumption;
 }
 
@@ -33,4 +33,8 @@ string Drone::getInfo() {
 	msg += "\nSize - " + size;
 	
 	return msg;
+}
+
+string Drone::getName() {
+	return "Drone";
 }

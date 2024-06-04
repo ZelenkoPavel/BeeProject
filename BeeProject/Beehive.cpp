@@ -67,3 +67,69 @@ void Beehive::setNumberOfRemovableFrames
 			= number_of_removable_frames;
 	}
 }
+
+
+
+bool Beehive::isEmpty() {
+	return size == 0;
+}
+
+void Beehive::addBee(Bee bee) {
+	if (isEmpty()) {
+		hive = new Bee[1];
+		hive[0] = bee;
+	}
+	else {
+		Bee* temp = new Bee[size + 1];
+		for (int i = 0; i < size; i++)
+		{
+			temp[i] = hive[i];
+		}
+		temp[size] = bee;
+
+		delete[] hive;
+		hive = temp;
+	}
+	size++;
+}
+
+void Beehive::remove(Bee bee) {
+	int index = findFirstIndex(bee);
+	remove(index);
+}
+int Beehive::findFirstIndex(Bee bee) { // недаработан
+	for (int i = 0; i < size; i++)
+	{
+		if (hive[i].getName() == bee.getName() &&
+			hive[i].getLifeInDays() == bee.getLifeInDays()) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+void Beehive::remove(int index) {
+	if (index >= 0) {
+		Bee* temp = new Bee[size - 1];
+		for (int i = 0, j = 0; i < size; i++)
+		{
+			if(i != index) {
+				temp[j] = hive[i];
+				j++;
+			}
+		}
+		delete[] hive;
+		hive = temp;
+	}
+	size--;
+}
+
+
+
+int Beehive::getTheTotalNumberOfBees() {
+	return size + 1;
+}
+
+int Beehive::getNumberOfBeesOfAParticularVariety(string name_bee) {
+	return 0;
+}

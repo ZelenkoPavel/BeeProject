@@ -19,10 +19,7 @@ int main() {
 	Bee* bee = new Bee[size]{ queenBee, builderBee, drone, guardBee,
 				nurseBee, scoutBee, workerBee };
 
-	for (int i = 0; i < size; i++)
-	{
-		cout << bee[i].getInfo() << endl;
-	}
+	cout << queenBee.getInfo() << endl;
 
 	return 0;
 }

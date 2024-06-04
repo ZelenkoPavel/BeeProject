@@ -21,3 +21,7 @@ string GuardBee::getInfo() {
 
 	return msg;
 }
+
+string GuardBee::getName() {
+	return "Guard Bee";
+}

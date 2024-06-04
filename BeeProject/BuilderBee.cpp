@@ -22,3 +22,7 @@ string BuilderBee::getInfo() {
 
 	return msg;
 }
+
+string BuilderBee::getName() {
+	return "Builder Bee";
+}

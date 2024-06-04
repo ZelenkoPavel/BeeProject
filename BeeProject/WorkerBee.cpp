@@ -30,3 +30,7 @@ string WorkerBee::getInfo() {
 
 	return msg;
 }
+
+string WorkerBee::getName() {
+	return "Worker Bee";
+}

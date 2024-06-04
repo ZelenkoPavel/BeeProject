@@ -40,7 +40,7 @@ double QueenBee::the_amount_of_honey_consumed() {
 	}
 
 	double honey_consumption = Bee::the_amount_of_honey_consumed() * weight
-		* number_of_eggs_laid_per_day * age * 1.5;
+		* number_of_eggs_laid_per_day * age * 1.5 + Bee::the_amount_of_honey_consumed();
 	return honey_consumption;
 }
 
@@ -54,4 +54,8 @@ string QueenBee::getInfo() {
 	msg += ";\nAge - " + to_string(age);
 
 	return msg;
+}
+
+string QueenBee::getName() {
+	return "Queen Bee";
 }

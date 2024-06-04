@@ -26,6 +26,9 @@ private:
 	int height;
 	string material;
 	int number_of_removable_frames;
+
+	Bee* hive;
+	int size = 0;
 public:
 	Beehive() : type_of_hive_construction("vertical"),
 		length(1), width(1), height(1), material("tree"),
@@ -72,5 +75,21 @@ public:
 
 	int getNumberOfRemovableFrames();
 	void setNumberOfRemovableFrames(int number_of_removable_frames);
+
+	/////////////
+
+	bool isEmpty();
+
+	void addBee(Bee bee);
+
+	void remove(Bee bee);
+	void remove(int index);
+
+	int getTheTotalNumberOfBees();
+
+	int getNumberOfBeesOfAParticularVariety(string name_bee);
+
+	int findFirstIndex(Bee bee);
+
 };
 

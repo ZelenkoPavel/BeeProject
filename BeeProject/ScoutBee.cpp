@@ -22,3 +22,7 @@ string ScoutBee::getInfo() {
 
 	return msg;
 }
+
+string ScoutBee::getName() {
+	return "Scout Bee";
+}
