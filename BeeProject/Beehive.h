@@ -2,14 +2,6 @@
 #include <iostream>
 #include "Bee.h"
 
-#include "BuilderBee.h"
-#include "Drone.h"
-#include "GuardBee.h"
-#include "NurseBee.h"
-#include "QueenBee.h"
-#include "ScoutBee.h"
-#include "WorkerBee.h"
-
 using namespace std;
 
 class Beehive
@@ -77,6 +69,8 @@ public:
 	void setNumberOfRemovableFrames(int number_of_removable_frames);
 
 	/////////////
+
+	int getSize();
 
 	bool isEmpty();
 

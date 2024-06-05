@@ -2,6 +2,13 @@
 #include "Bee.h"
 #include "Beehive.h"
 
+#include "BuilderBee.h"
+#include "Drone.h"
+#include "GuardBee.h"
+#include "NurseBee.h"
+#include "QueenBee.h"
+#include "ScoutBee.h"
+#include "WorkerBee.h"
 
 using namespace std;
 
@@ -13,13 +20,28 @@ int main() {
 	GuardBee guardBee;
 	NurseBee nurseBee;
 	ScoutBee scoutBee;
-	WorkerBee workerBee;
+	WorkerBee workerBee1;
+	WorkerBee workerBee2;
+	WorkerBee workerBee3;
+	WorkerBee workerBee4;
+	WorkerBee workerBee5;
+	
+	Beehive hive1;
 
-	int size = 7;
-	Bee* bee = new Bee[size]{ queenBee, builderBee, drone, guardBee,
-				nurseBee, scoutBee, workerBee };
+	hive1.addBee(queenBee);
 
-	cout << queenBee.getInfo() << endl;
+	hive1.addBee(guardBee);
+	hive1.addBee(drone);
+	hive1.addBee(workerBee2);
+	hive1.addBee(scoutBee);
+	hive1.addBee(workerBee5);
+	hive1.addBee(workerBee3);
+	hive1.addBee(workerBee4);
+	hive1.addBee(nurseBee);
+	hive1.addBee(builderBee);
+	hive1.addBee(workerBee1);
 
+	cout << hive1.getSize() << endl;
+	cout << hive1.getNumberOfBeesOfAParticularVariety(workerBee1.getName()) << endl;
 	return 0;
 }

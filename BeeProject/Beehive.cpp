@@ -61,14 +61,18 @@ int Beehive::getNumberOfRemovableFrames() {
 	return number_of_removable_frames;
 }
 void Beehive::setNumberOfRemovableFrames
-			(int number_of_removable_frames) {
+(int number_of_removable_frames) {
 	if (number_of_removable_frames > 0) {
 		this->number_of_removable_frames
 			= number_of_removable_frames;
 	}
 }
 
+////////////////////////////
 
+int Beehive::getSize() {
+	return size;
+}
 
 bool Beehive::isEmpty() {
 	return size == 0;
@@ -113,7 +117,7 @@ void Beehive::remove(int index) {
 		Bee* temp = new Bee[size - 1];
 		for (int i = 0, j = 0; i < size; i++)
 		{
-			if(i != index) {
+			if (i != index) {
 				temp[j] = hive[i];
 				j++;
 			}
@@ -131,5 +135,15 @@ int Beehive::getTheTotalNumberOfBees() {
 }
 
 int Beehive::getNumberOfBeesOfAParticularVariety(string name_bee) {
-	return 0;
+	int count = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << hive[i].getName() << endl;
+		if (hive[i].getName() == name_bee) {
+			count++;
+		}
+	}
+
+	return count;
 }
