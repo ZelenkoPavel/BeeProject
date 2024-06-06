@@ -70,80 +70,159 @@ void Beehive::setNumberOfRemovableFrames
 
 ////////////////////////////
 
-int Beehive::getSize() {
-	return size;
+string error = "Incorrect data was entered.";
+
+string Beehive::getSize() {
+	string result = "";
+	result += "QueenBee - " + to_string(size[0]);
+	result += "\nBuilderBee - " + to_string(size[1]);
+	result += "\nDrone - " + to_string(size[2]);
+	result += "\nGuardBee - " + to_string(size[3]);
+	result += "\nNurseBee - " + to_string(size[4]);
+	result += "\nScoutBee - " + to_string(size[5]);
+	result += "\nWorkerBee - " + to_string(size[6]);
+
+	return result;
 }
 
-bool Beehive::isEmpty() {
-	return size == 0;
+bool Beehive::isEmpty(int index) {
+	return size[index] == 0;
 }
 
+int Beehive::beeDefinition(string name) {
+	cout << name << endl;
+
+	int index = -1;
+
+	if (name == "Queen Bee") {
+		index = 0;
+	}
+	else if (name == "Builder Bee") {
+		index = 1;
+	}
+	else if (name == "Drone") {
+		index = 2;
+	}
+	else if (name == "Guard Bee") {
+		index = 3;
+	}
+	else if (name == "Nurse Bee") {
+		index = 4;
+	}
+	else if (name == "Scout Bee") {
+		index = 5;
+	}
+	else if (name == "Worker Bee") {
+		index = 6;
+	}
+
+	return index;
+}
+//0 - QueenBee
+//1 - BuilderBee
+//2 - Drone
+//3 - GuardBee
+//4 - NurseBee
+//5 - ScoutBee
+//6 - WorkerBee
 void Beehive::addBee(Bee bee) {
-	if (isEmpty()) {
-		hive = new Bee[1];
-		hive[0] = bee;
+	int index = beeDefinition(bee.getName());
+	if (index < 0) {
+		return;
+	}
+	if (isEmpty(index)) {
+		switch (index) {
+		case 0:hive[0] = new QueenBee[1]; break;
+		case 1:hive[1] = new BuilderBee[1]; break;
+		case 2:hive[2] = new Drone[1]; break;
+		case 3:hive[3] = new GuardBee[1]; break;
+		case 4:hive[4] = new NurseBee[1]; break;
+		case 5:hive[5] = new ScoutBee[1]; break;
+		case 6:hive[6] = new WorkerBee[1]; break;
+		}
+		hive[index][size[index]] = bee;
 	}
 	else {
-		Bee* temp = new Bee[size + 1];
-		for (int i = 0; i < size; i++)
-		{
-			temp[i] = hive[i];
+		Bee* temp;
+		switch (index) {
+		case 0:temp = new QueenBee[size[index] + 1]; break;
+		case 1:temp = new BuilderBee[size[index] + 1]; break;
+		case 2:temp = new Drone[size[index] + 1]; break;
+		case 3:temp = new GuardBee[size[index] + 1]; break;
+		case 4:temp = new NurseBee[size[index] + 1]; break;
+		case 5:temp = new ScoutBee[size[index] + 1]; break;
+		case 6:temp = new WorkerBee[size[index] + 1]; break;
 		}
-		temp[size] = bee;
+		
+		for (int i = 0; i < size[index]; i++)
+		{
+			temp[i] = hive[index][i];
+		}
+		temp[size[index]] = bee;
 
-		delete[] hive;
-		hive = temp;
+		delete[] hive[index];
+		hive[index] = temp;
 	}
-	size++;
+	size[index]++;
 }
 
 void Beehive::remove(Bee bee) {
 	int index = findFirstIndex(bee);
-	remove(index);
+	remove(index, beeDefinition(bee.getName()));
 }
-int Beehive::findFirstIndex(Bee bee) { // недаработан
-	for (int i = 0; i < size; i++)
+int Beehive::findFirstIndex(Bee bee) { 
+	int index = beeDefinition(bee.getName());
+	for (int i = 0; i < size[index]; i++)
 	{
-		if (hive[i].getName() == bee.getName() &&
-			hive[i].getLifeInDays() == bee.getLifeInDays()) {
+		if (hive[index][i].getInfo() == bee.getInfo()) {
 			return i;
 		}
 	}
 	return -1;
 }
 
-void Beehive::remove(int index) {
+void Beehive::remove(int index, int index_of_array) {
+	if (index < 0 || index_of_array) {
+		cout << error << endl;
+		return;
+	}
+	Bee* temp;
+	switch (index_of_array) {
+	case 0:temp = new QueenBee[size[index] - 1]; break;
+	case 1:temp = new BuilderBee[size[index] - 1]; break;
+	case 2:temp = new Drone[size[index] - 1]; break;
+	case 3:temp = new GuardBee[size[index] - 1]; break;
+	case 4:temp = new NurseBee[size[index] - 1]; break;
+	case 5:temp = new ScoutBee[size[index] - 1]; break;
+	case 6:temp = new WorkerBee[size[index] - 1]; break;
+	}
 	if (index >= 0) {
-		Bee* temp = new Bee[size - 1];
-		for (int i = 0, j = 0; i < size; i++)
+		for (int i = 0, j = 0; i < size[index_of_array]; i++)
 		{
 			if (i != index) {
-				temp[j] = hive[i];
+				temp[j] = hive[index_of_array][i];
 				j++;
 			}
 		}
-		delete[] hive;
-		hive = temp;
+		delete[] hive[index_of_array];
+		hive[index_of_array] = temp;
 	}
-	size--;
+	size[index_of_array];
 }
 
 
 
 int Beehive::getTheTotalNumberOfBees() {
-	return size + 1;
+	int s = 0;
+	for (int i = 0; i < 7; i++)
+	{
+		s += size[i] + 1;
+	}
+	return s;
 }
 
 int Beehive::getNumberOfBeesOfAParticularVariety(string name_bee) {
-	int count = 0;
+	int index = beeDefinition(name_bee);
 
-	for (int i = 0; i < size; i++)
-	{
-		cout << hive[i].getName() << endl;
-		if (hive[i].getName() == name_bee) {
-			count++;
-		}
-	}
-
-	return count;
+	return index > -1 && index < 7 ? size[index] : -1;
 }

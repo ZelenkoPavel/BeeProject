@@ -2,6 +2,14 @@
 #include <iostream>
 #include "Bee.h"
 
+#include "BuilderBee.h"
+#include "Drone.h"
+#include "GuardBee.h"
+#include "NurseBee.h"
+#include "QueenBee.h"
+#include "ScoutBee.h"
+#include "WorkerBee.h"
+
 using namespace std;
 
 class Beehive
@@ -18,9 +26,17 @@ private:
 	int height;
 	string material;
 	int number_of_removable_frames;
-
-	Bee* hive;
-	int size = 0;
+	//0 - QueenBee
+	//1 - BuilderBee
+	//2 - Drone
+	//3 - GuardBee
+	//4 - NurseBee
+	//5 - ScoutBee
+	//6 - WorkerBee
+	//7 - Bee
+	Bee** hive = new Bee*[7];
+	int* size = new int[7];
+	
 public:
 	Beehive() : type_of_hive_construction("vertical"),
 		length(1), width(1), height(1), material("tree"),
@@ -70,14 +86,16 @@ public:
 
 	/////////////
 
-	int getSize();
+	int beeDefinition(string name);
 
-	bool isEmpty();
+	string getSize();
+
+	bool isEmpty(int index);
 
 	void addBee(Bee bee);
 
 	void remove(Bee bee);
-	void remove(int index);
+	void remove(int index, int index_of_array);
 
 	int getTheTotalNumberOfBees();
 
