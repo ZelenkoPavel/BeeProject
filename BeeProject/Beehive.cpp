@@ -139,6 +139,7 @@ void Beehive::addBee(Bee bee) {
 		case 4:hive[4] = new NurseBee[1]; break;
 		case 5:hive[5] = new ScoutBee[1]; break;
 		case 6:hive[6] = new WorkerBee[1]; break;
+		default:cout << "Error. Bee - " << bee.getInfo() << endl; return;
 		}
 		hive[index][size[index]] = bee;
 	}
@@ -152,6 +153,7 @@ void Beehive::addBee(Bee bee) {
 		case 4:temp = new NurseBee[size[index] + 1]; break;
 		case 5:temp = new ScoutBee[size[index] + 1]; break;
 		case 6:temp = new WorkerBee[size[index] + 1]; break;
+		default:cout << "Error. Bee - " << bee.getInfo() << endl; return;
 		}
 		
 		for (int i = 0; i < size[index]; i++)
@@ -195,6 +197,7 @@ void Beehive::remove(int index, int index_of_array) {
 	case 4:temp = new NurseBee[size[index] - 1]; break;
 	case 5:temp = new ScoutBee[size[index] - 1]; break;
 	case 6:temp = new WorkerBee[size[index] - 1]; break;
+	default:cout << "Error. index_of_array - " << index_of_array << endl; return;
 	}
 	if (index >= 0) {
 		for (int i = 0, j = 0; i < size[index_of_array]; i++)
