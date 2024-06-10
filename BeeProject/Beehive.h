@@ -33,11 +33,16 @@ private:
 	//4 - NurseBee
 	//5 - ScoutBee
 	//6 - WorkerBee
-	//7 - Bee
 	Bee** hive = new Bee*[7];
-	int* size = new int[7];
-	
+	int* size = new int[7] {0,0,0,0,0,0,0};
+
 public:
+	void s() {
+		for (int i = 0; i < 7; i++)
+		{
+			cout << size[i] << endl;
+		}
+	}
 	Beehive() : type_of_hive_construction("vertical"),
 		length(1), width(1), height(1), material("tree"),
 		number_of_removable_frames(10){}
@@ -92,7 +97,15 @@ public:
 
 	bool isEmpty(int index);
 
-	void addBee(Bee bee);
+	//void addBee(Bee bee);
+	void addBee(QueenBee bee);
+	void addBee(BuilderBee bee);
+	void addBee(Drone bee);
+	void addBee(GuardBee bee);
+	void addBee(NurseBee bee);
+	void addBee(ScoutBee bee);
+	void addBee(WorkerBee bee);
+
 
 	void remove(Bee bee);
 	void remove(int index, int index_of_array);
@@ -103,5 +116,6 @@ public:
 
 	int findFirstIndex(Bee bee);
 
+	string getInfoAboutEveryBody();
 };
 
