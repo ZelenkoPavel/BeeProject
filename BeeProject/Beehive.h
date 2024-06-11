@@ -33,8 +33,8 @@ private:
 	//4 - NurseBee
 	//5 - ScoutBee
 	//6 - WorkerBee
-	Bee** hive = new Bee*[7];
-	int* size = new int[7] {0,0,0,0,0,0,0};
+	Bee** bees;
+	int size = 0;
 
 public:
 	void s() {
@@ -71,6 +71,11 @@ public:
 		length(length), width(width), height(height), material(material),
 		number_of_removable_frames(number_of_removable_frames) {}
 
+	Beehive(Bee** bees, int size) {
+		this->bees = bees;
+		this->size = size;
+	}
+
 	string getTypeOfHiveConstruction();
 	void setTypeOfHiveConstruction(string type_of_hive_construction);
 	
@@ -98,14 +103,8 @@ public:
 	bool isEmpty(int index);
 
 	//void addBee(Bee bee);
-	void addBee(QueenBee bee);
-	void addBee(BuilderBee bee);
-	void addBee(Drone bee);
-	void addBee(GuardBee bee);
-	void addBee(NurseBee bee);
-	void addBee(ScoutBee bee);
-	void addBee(WorkerBee bee);
-
+	void add(Bee* bee);
+	
 
 	void remove(Bee bee);
 	void remove(int index, int index_of_array);
