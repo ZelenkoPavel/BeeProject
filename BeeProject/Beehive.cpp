@@ -71,7 +71,7 @@ void Beehive::setNumberOfRemovableFrames
 ////////////////////////////
 
 int Beehive::getSize() {
-	return size + 1;
+	return size;
 }
 
 
@@ -79,51 +79,6 @@ bool Beehive::isEmpty(int index) {
 	return size == 0;
 }
 
-
-/*void Beehive::addBee(Bee bee) {
-	cout << bee.getName() << endl;
-	int index = beeDefinition(bee.getName());
-	if (index < 0) {
-		return;
-	}
-	if (isEmpty(index)) {
-		switch (index) {
-		case 0:hive[0] = new QueenBee[1]; break;
-		case 1:hive[1] = new BuilderBee[1]; break;
-		case 2:hive[2] = new Drone[1]; break;
-		case 3:hive[3] = new GuardBee[1]; break;
-		case 4:hive[4] = new NurseBee[1]; break;
-		case 5:hive[5] = new ScoutBee[1]; break;
-		case 6:hive[6] = new WorkerBee[1]; break;
-		default:cout << "Error. Bee - " << bee.getInfo() << endl; return;
-		}
-		hive[index][size[index]] = bee;
-	}
-	else {
-		Bee* temp;
-		switch (index) {
-		case 0:temp = new QueenBee[size[index] + 1]; break;
-		case 1:temp = new BuilderBee[size[index] + 1]; break;
-		case 2:temp = new Drone[size[index] + 1]; break;
-		case 3:temp = new GuardBee[size[index] + 1]; break;
-		case 4:temp = new NurseBee[size[index] + 1]; break;
-		case 5:temp = new ScoutBee[size[index] + 1]; break;
-		case 6:temp = new WorkerBee[size[index] + 1]; break;
-		default:cout << "Error. Bee - " << bee.getInfo() << endl; return;
-		}
-
-		for (int i = 0; i < size[index]; i++)
-		{
-			temp[i] = hive[index][i];
-		}
-		temp[size[index]] = bee;
-
-		delete[] hive[index];
-		hive[index] = temp;
-	}
-	size[index]++;
-	cout << hive[index][0].getInfo() << endl;
-}*/
 
 
 void Beehive::add(Bee* bee) {
@@ -134,7 +89,7 @@ void Beehive::add(Bee* bee) {
 	}
 	else {
 		Bee** temp = new Bee * [size + 1];
-		
+
 		for (int i = 0; i < size; i++)
 		{
 			temp[i] = bees[i];
@@ -144,10 +99,10 @@ void Beehive::add(Bee* bee) {
 		{
 			delete[] bees[i];
 		}
-		cout << "jghhg" << endl;
-		
+		//cout << "jghhg" << endl;
+
 		delete[] bees;
-		
+
 		bees = temp;
 	}
 	size++;
@@ -196,12 +151,11 @@ void Beehive::remove(int index) {
 
 string Beehive::getInfoAboutEveryBody() {
 	string msg = "";
-	for (int i = 0; i < 7; i++)
+
+	for (int j = 0; j < size; j++)
 	{
-		for (int j = 0; j < size; j++)
-		{
-			msg += bees[j]->getInfo() + "\n";
-		}
+		msg += bees[j]->getInfo() + "\n";
+		cout << "fghefdhdfhdgfh" << endl;
 	}
 
 	return msg;
