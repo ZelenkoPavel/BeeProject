@@ -37,12 +37,6 @@ private:
 	int size = 0;
 
 public:
-	void s() {
-		for (int i = 0; i < 7; i++)
-		{
-			cout << size[i] << endl;
-		}
-	}
 	Beehive() : type_of_hive_construction("vertical"),
 		length(1), width(1), height(1), material("tree"),
 		number_of_removable_frames(10){}
@@ -96,9 +90,7 @@ public:
 
 	/////////////
 
-	int beeDefinition(string name);
-
-	string getSize();
+	int getSize();
 
 	bool isEmpty(int index);
 
@@ -106,14 +98,14 @@ public:
 	void add(Bee* bee);
 	
 
-	void remove(Bee bee);
-	void remove(int index, int index_of_array);
+	void remove(Bee* bee);
+	void remove(int index);
 
 	int getTheTotalNumberOfBees();
 
 	int getNumberOfBeesOfAParticularVariety(string name_bee);
 
-	int findFirstIndex(Bee bee);
+	int findFirstIndex(Bee* bee);
 
 	string getInfoAboutEveryBody();
 };

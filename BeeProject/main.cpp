@@ -14,50 +14,34 @@ using namespace std;
 
 int main() {
 
-	QueenBee queenBee1;
-	QueenBee queenBee2;
+	Bee* bee1 = new QueenBee{};
 
-	BuilderBee builderBee;
-	Drone drone;
-	GuardBee guardBee;
-	NurseBee nurseBee;
-	ScoutBee scoutBee;
-	WorkerBee workerBee1;
-	WorkerBee workerBee2;
-	WorkerBee workerBee3;
-	WorkerBee workerBee4;
-	WorkerBee workerBee5;
+	Bee* bee2 = new BuilderBee{};
+	Bee* bee3 = new Drone{};
+	Bee* bee4 = new GuardBee{};
+	Bee* bee5 = new NurseBee{};
+	Bee* bee6 = new ScoutBee{};
+	Bee* bee7 = new WorkerBee{};
+	Bee* bee8 = new WorkerBee{};
+	Bee* bee9 = new WorkerBee{};
+	Bee* bee10 = new WorkerBee{};
+	Bee* bee11 = new WorkerBee{};
 
+	Beehive bees;
 
-	//cout << queenBee.getName() << endl;
-	//cout << builderBee.getName() << endl;
-	//cout << drone.getName() << endl;
-	//cout << guardBee.getName() << endl;
-	//cout << nurseBee.getName() << endl;
-	//cout << scoutBee.getName() << endl;
-	//cout << workerBee1.getName() << endl;
+	bees.add(bee1);
+	bees.add(bee2);
+	bees.add(bee3);
+	bees.add(bee4);
+	bees.add(bee5);
+	bees.add(bee6);
+	bees.add(bee7);
+	bees.add(bee8);
+	bees.add(bee9);
+	bees.add(bee10);
+	bees.add(bee11);
 
-	//cout << "Sdfgsfgsfdg" << endl;
-	Beehive hive1;
+	cout << bees.getInfoAboutEveryBody() << endl;
 
-	hive1.addBee(queenBee1);
-	hive1.addBee(queenBee2);
-
-	//hive1.addBee(guardBee);
-	//hive1.addBee(drone);
-	//hive1.addBee(workerBee2);
-	//hive1.addBee(scoutBee);
-	
-	//hive1.addBee(workerBee5);
-	//hive1.addBee(workerBee3);
-	//hive1.addBee(workerBee4);
-	
-	//hive1.addBee(nurseBee);
-	//hive1.addBee(builderBee);
-	//hive1.addBee(workerBee1);
-
-	cout << hive1.getInfoAboutEveryBody() << endl;
-	cout << hive1.getSize() << endl;
-	cout << hive1.getTheTotalNumberOfBees() << endl;
 	return 0;
 }
