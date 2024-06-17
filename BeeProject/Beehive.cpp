@@ -99,7 +99,6 @@ void Beehive::add(Bee* bee) {
 		{
 			delete[] bees[i];
 		}
-		//cout << "jghhg" << endl;
 
 		delete[] bees;
 
@@ -154,8 +153,7 @@ string Beehive::getInfoAboutEveryBody() {
 
 	for (int j = 0; j < size; j++)
 	{
-		msg += bees[j]->getInfo() + "\n";
-		cout << "fghefdhdfhdgfh" << endl;
+		msg += bees[j]->getName() + "\n";
 	}
 
 	return msg;

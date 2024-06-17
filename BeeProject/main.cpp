@@ -14,18 +14,18 @@ using namespace std;
 
 int main() {
 
-	Bee* bee1 = new QueenBee{};
+	QueenBee* bee1 = new QueenBee();
 
-	Bee* bee2 = new BuilderBee{};
-	//Bee* bee3 = new Drone{};
-	//Bee* bee4 = new GuardBee{};
-	//Bee* bee5 = new NurseBee{};
-	//Bee* bee6 = new ScoutBee{};
-	//Bee* bee7 = new WorkerBee{};
-	//Bee* bee8 = new WorkerBee{};
-	//Bee* bee9 = new WorkerBee{};
-	//Bee* bee10 = new WorkerBee{};
-	//Bee* bee11 = new WorkerBee{};
+	BuilderBee* bee2 = new BuilderBee();
+	//Bee* bee3 = new Drone();
+	//Bee* bee4 = new GuardBee();
+	//Bee* bee5 = new NurseBee();
+	//Bee* bee6 = new ScoutBee();
+	//Bee* bee7 = new WorkerBee();
+	//Bee* bee8 = new WorkerBee();
+	//Bee* bee9 = new WorkerBee();
+	//Bee* bee10 = new WorkerBee();
+	//Bee* bee11 = new WorkerBee();
 
 	Beehive bees;
 
@@ -41,8 +41,12 @@ int main() {
 	//bees.add(bee10);
 	//bees.add(bee11);
 
-	//cout << bees.getTheTotalNumberOfBees() << endl;
-	cout << bees.getInfoAboutEveryBody() << endl;
+	//cout << "sfgfdg" << endl;
+	//cout << bee1->QueenBee::getInfo() << endl;
+	//cout << "sfgfdg" << endl;
+
+	//cout << bees.getNumberOfBeesOfAParticularVariety("Queen Bee") << endl;
+	//cout << bees.getInfoAboutEveryBody() << endl;
 
 	return 0;
 }
